@@ -192,3 +192,24 @@ Como los valores de los atributos cambian dinámicamente mediante el evento expl
 * `this.similarityMatrix`: Matriz de similitud coseno entre documentos.
 * `this.vectorLength`: Vector de longitud de cada documento.
 * `this.normalizedTF`: Matriz de frecuencias normalizadas de cada palabra en cada documento.
+
+[↑](#item0)
+
+### **_Setter_**
+
+Mediante los setters, podemos establecer los valores de los atributos, en este caso sólo contamos con un setter:
+
+* `setDocuments(documents)`: Establecemos la matriz de documentos.
+
+### **_Getters_**
+
+Asimismo, también contamos con una serie de getters que nos devuelven los valores de algunos atributos.
+
+* `getDocuments()`: Devuelve la matriz de documentos.
+* `getTF()`: Devuelve la matriz de términos más frecuentes de cada documento.
+* `getIDF()`: Devuelve la matriz IDF.
+* `getTFIDF()`: Devuelve la matriz TFIDF.
+* `getSimilarityMatrix()`: Devuelve la matriz de similitud.
+* `getVectorLength()`: Devuelve el vector de longitud de cada documento.
+
+[↑](#item0)
