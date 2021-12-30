@@ -87,3 +87,44 @@ El fichero [index.html](https://github.com/alu0101216126/CB-RecommenderSystem/bl
 La información del contenido de este fichero lo puede encontrar en las [Instrucciones](#item3). 
 
 [↑](#item0)
+
+<a name="item4.2"></a>
+### 4.2. form.js
+
+En [form.js](https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/src/form.js), procesamos los datos obtenidos en el formulario, para posteriormente almacenarlos en variables, y mediante un objeto de la clase **Recommender**, obtener y mostrar los resultados.
+
+Para esto, primeramente, creamos un objeto de la clase Recommender que explicaremos más adelante. Lo llamaremos **recommender**:
+```javascript
+const recommender = new Recommender();
+```
+Una vez creado el objeto, podremos trabajar con los eventos para procesar y mostrar datos. Para conseguir esto, empleamos dos tipos de eventos:
+
+* Evento `change`: Este evento se activará cada vez que el input del campo que estamos observando cambie.
+
+```javascript
+const fileInput = document.getElementById('documents');
+fileInput.addEventListener('change', fileToDocuments);
+```
+Se puede observar en el ejemplo, que lo que haremos será obtener el campo que queremos analizar, que en este caso es el archivo .txt con los documentos a analizar. Posteriormente, cuando se active el evento, llamaremos al método `fileToDocuments`. 
+
+En el método `fileToDocuments`, creamos un objeto de la clase `FileReader()` que denominaremos `reader`. Una vez hecho esto, leemos el fichero recibido como texto:
+
+```javascript
+    const file = fileInput.files[0];
+    let reader = new FileReader();
+    reader.readAsText(file);
+```
+Cuando se acabe de leer el fichero correctamente, se activará el evento `load`. En este evento, separamos el archivo recibido por líneas, donde cada línea representará un documento. Por cada línea: convertimos el texto a minúsculas, eliminamos caracteres que no sean alfanuméricos, eliminamos espacios innecesarios, y separamos cada línea por espacios. Finalmente, esta matriz de documentos se almacenará en el objeto recommender a través del método `setDocuments(lines)`.
+
+* Evento `click`: Este evento se activará cada vez que pulsemos el botón del campo que estamos observando.
+
+```javascript
+const generate = document.getElementById('generate');
+generate.addEventListener('click', function(e) {
+```
+Se puede observar en el ejemplo, que lo que haremos será obtener el campo que queremos analizar, que en este caso es el botón a pulsar. Posteriormente, cuando se active el evento, lo que haremos será realizar todos los cálculos necesarios con los valores almacenados hasta el momento, para finalmente mostrarlos.
+
+También existen otros métodos que simplemente se encargar de mostrar mediante HTML los resultados, estos son: `showResults(documents, tf, idf, tf_idf)`, `printTables(tf, idf, tf_idf)` y `showPredictionsCalculation(array, prediction)`.
+
+[↑](#item0)
+
