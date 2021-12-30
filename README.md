@@ -248,3 +248,49 @@ A continuación recorreremos la matriz de documentos, donde por cada documento, 
 * Si la palabra actual no se encuentra todavía en el documento, es que es la primera vez que aparece, por lo que se le asigna una frecuencia de 1.
 
 Después de haber recorrido toda la matriz de documentos, asignamos al atributo TF, el resultado que hemos obtenido.
+
+[↑](#item0)
+
+### **_calculateIDF()_**
+
+Mediante este método obtenemos el IDF o frecuencia inversa de cada palabra en su documento correspondiente. Debemos de seguir la siguiente fórmula: `IDF(x) = log N/dfx`
+
+```javascript
+calculateIDF() {
+        let IDF = [];
+        let N = this.documents.length;
+        let dfx = 0; // Número de documentos en N en los que la palabra clave x aparece.
+
+        // Por cada fila de TF, Comprobamos si la palabra aparece en algún documento
+        for (let i = 0; i < this.TF.length; i++) {
+            let docIDF = {};
+
+            for (let word in this.TF[i]) {
+                dfx = 0;
+                for (let j = 0; j < this.documents.length; j++) {
+                    if (this.documents[j].includes(word)) dfx++;
+                }
+                docIDF[word] = Math.log10(N / dfx);
+            }
+
+            IDF.push(docIDF);
+        }
+        this.IDF = IDF;
+    }
+```
+En primer lugar definimos las variables que vamos a emplear:
+* **IDF**: array donde iremos almacenando el resultado.
+* **N**: tamaño de la matriz de documentos.
+* **dfx**: número de documentos en N en los que la palabra clave x aparece.
+
+Cabe destacar que trabajaremos a su vez con objetos (docIDF), por lo que obtendremos como resultado, una matriz de objetos de la siguiente manera:
+
+* `[{palabra1: IDF1, palabra2: IDF2, ...}, {palabra1: IDF1, palabra2: IDF2, ...}, ...]`
+* 
+Ahora, por cada fila del atributo TF, comprobamos si la palabra que estamos analizando aparece en algún documento. Si es así, incrementamos el contador dfx.
+
+Una vez tenemos el valor de dfx, podemos calcular el IDF para la palabra del documento actual, aplicando la siguiente fórmula: `IDF(x) = log N/dfx`
+
+* `docIDF[word] = Math.log10(N / dfx);`
+
+Vamos almacenando los resultados, para finalmente, asignar el array IDF en el atributo de la clase.
