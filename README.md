@@ -69,7 +69,7 @@ Posteriormente, pulsaremos el botón de **GENERAR PREDICCIÓN** para mostrar los
 Un ejemplo de ejecución sería el siguiente:
 
 <p align="center">
- <a href="https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/media/Example.gif">
+ <a href="https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/media/Example.gif">
   <img src="./media/formExample.gif" style="max-width:100%; width: 150%">
  </a>
 </p>
