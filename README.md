@@ -49,3 +49,29 @@ Si accedemos al directorio [/docs](https://github.com/alu0101216126/CB-Recommend
 * [index.html](https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/index.html): Fichero **HTML** que contiene el formulario a procesar mediante el fichero [form.js](https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/src/form.js)
 
 [↑](#item0)
+
+<a name="item3"></a>
+## 3. Instrucciones :page_with_curl:
+
+Para acceder al sistema recomendador lo haremos a través del enlace que aparece en la parte superior, o haciendo clic [aquí](https://alu0101216126.github.io/CB-RecommenderSystem/).
+
+![Formato inicial del formulario](./docs/media/CB-RecommenderSystem.png)
+
+Veremos que tenemos un formulario con una serie de campos:
+
+* En primer lugar, se nos indica que seleccionemos un documento. Dicho documento lo debemos de subir en formato `.txt`, al pusar el botón de **Seleccionar arhivo**. En [/examples](https://github.com/alu0101216126/CB-RecommenderSystem/tree/main/docs/examples) podemos encontrar algunas matrices de ejemplo. Se aprecia que cada fila representará un documento distinto.
+
+Posteriormente, pulsaremos el botón de **GENERAR PREDICCIÓN** para mostrar los resultados.
+
+<a name="item3.1"></a>
+### 3.1 Ejemplo de uso 
+
+Un ejemplo de ejecución sería el siguiente:
+
+<p align="center">
+ <a href="https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/media/Example.gif">
+  <img src="./media/formExample.gif" style="max-width:100%; width: 150%">
+ </a>
+</p>
+
+[↑](#item0)
