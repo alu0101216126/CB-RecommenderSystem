@@ -1,11 +1,14 @@
 // Clase que representa un sistema de recomendación -> Modelos Basados en el Contenido
 class Recommender {
 
-    // Calculamos la matriz de similitud
     constructor() {
         this.documents = [];
         this.TF = [];
         this.IDF = [];
+        this.TFIDF = [];
+        this.similarityMatrix = [];
+        this.vectorLength = [];
+        this.normalizedTF = [];
     }
 
     /**
