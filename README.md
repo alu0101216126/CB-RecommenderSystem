@@ -55,7 +55,7 @@ Si accedemos al directorio [/docs](https://github.com/alu0101216126/CB-Recommend
 
 Para acceder al sistema recomendador lo haremos a través del enlace que aparece en la parte superior, o haciendo clic [aquí](https://alu0101216126.github.io/CB-RecommenderSystem/).
 
-![Formato inicial del formulario](./docs/media/CB-RecommenderSystem.png)
+![Formato inicial del formulario](./media/CB-RecommenderSystem.png)
 
 Veremos que tenemos un formulario con una serie de campos:
 
@@ -70,7 +70,7 @@ Un ejemplo de ejecución sería el siguiente:
 
 <p align="center">
  <a href="https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/media/Example.gif">
-  <img src="./media/formExample.gif" style="max-width:100%; width: 150%">
+  <img src="./media/Example.gif" style="max-width:100%; width: 150%">
  </a>
 </p>
 
