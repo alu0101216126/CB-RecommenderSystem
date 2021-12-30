@@ -1,4 +1,4 @@
-// Clase que representa un sistema de recomendación basa
+// Clase que representa un sistema de recomendación -> Modelos Basados en el Contenido
 class Recommender {
 
     // Calculamos la matriz de similitud
