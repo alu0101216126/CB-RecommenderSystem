@@ -1,0 +1,21 @@
+{
+  "name": "sistemas_recomendacion",
+  "version": "1.0.0",
+  "description": "Autor: Daniel Álvarez Medina (alu0101216126)",
+  "main": "formulario.js",
+  "scripts": {
+    "start": "tsc-watch --onSuccess \"node dist/formulario.js\"",
+    "doc": "typedoc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.23.0",
+    "eslint-config-google": "^0.14.0",
+    "ts-node": "^9.1.1",
+    "tsc-watch": "^4.2.9"
+  }
+}
