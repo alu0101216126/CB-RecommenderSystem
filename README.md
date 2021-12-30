@@ -57,7 +57,7 @@ Para acceder al sistema recomendador lo haremos a través del enlace que aparece
 
 ![Formato inicial del formulario](./media/CB-RecommenderSystem.png)
 
-Veremos que tenemos un formulario con una serie de campos:
+Veremos que tenemos un formulario con una serie de campos (fichero index.html):
 
 * En primer lugar, se nos indica que seleccionemos un documento. Dicho documento lo debemos de subir en formato `.txt`, al pusar el botón de **Seleccionar arhivo**. En [/examples](https://github.com/alu0101216126/CB-RecommenderSystem/tree/main/docs/examples) podemos encontrar algunas matrices de ejemplo. Se aprecia que cada fila representará un documento distinto.
 
@@ -82,7 +82,7 @@ Un ejemplo de ejecución sería el siguiente:
 <a name="item4.1"></a>
 ### 4.1. index.html 
 
-El fichero [index.html](https://github.com/alu0101216126/RecommenderSystem/blob/main/docs/index.html), contiene el formulario a rellenar por parte del usuario, donde posteriormente será analizado.
+El fichero [index.html](https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/index.html), contiene el formulario a rellenar por parte del usuario, donde posteriormente será analizado.
 
 La información del contenido de este fichero lo puede encontrar en las [Instrucciones](#item3). 
 
