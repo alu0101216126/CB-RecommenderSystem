@@ -75,3 +75,15 @@ Un ejemplo de ejecución sería el siguiente:
 </p>
 
 [↑](#item0)
+
+<a name="item4"></a>
+## 4. Descripción del código :computer:
+
+<a name="item4.1"></a>
+### 4.1. index.html 
+
+El fichero [index.html](https://github.com/alu0101216126/RecommenderSystem/blob/main/docs/index.html), contiene el formulario a rellenar por parte del usuario, donde posteriormente será analizado.
+
+La información del contenido de este fichero lo puede encontrar en las [Instrucciones](#item3). 
+
+[↑](#item0)
