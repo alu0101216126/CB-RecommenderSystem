@@ -59,7 +59,7 @@ Para acceder al sistema recomendador lo haremos a través del enlace que aparece
 
 Veremos que tenemos un formulario con una serie de campos (fichero index.html):
 
-* En primer lugar, se nos indica que seleccionemos un documento. Dicho documento lo debemos de subir en formato `.txt`, al pusar el botón de **Seleccionar arhivo**. En [/examples](https://github.com/alu0101216126/CB-RecommenderSystem/tree/main/docs/examples) podemos encontrar algunas matrices de ejemplo. Se aprecia que cada fila representará un documento distinto.
+* En primer lugar, se nos indica que seleccionemos un documento. Dicho documento lo debemos de subir en formato `.txt`, al pusar el botón de **Seleccionar arhivo**. En [/examples](https://github.com/alu0101216126/CB-RecommenderSystem/tree/main/docs/examples) podemos encontrar algunos ficheros de ejemplo. Se aprecia que cada fila representará un documento distinto.
 
 Posteriormente, pulsaremos el botón de **GENERAR PREDICCIÓN** para mostrar los resultados.
 
