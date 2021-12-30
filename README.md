@@ -105,15 +105,50 @@ Una vez creado el objeto, podremos trabajar con los eventos para procesar y most
 const fileInput = document.getElementById('documents');
 fileInput.addEventListener('change', fileToDocuments);
 ```
-Se puede observar en el ejemplo, que lo que haremos será obtener el campo que queremos analizar, que en este caso es el archivo .txt con los documentos a analizar. Posteriormente, cuando se active el evento, llamaremos al método `fileToDocuments`. 
-
-En el método `fileToDocuments`, creamos un objeto de la clase `FileReader()` que denominaremos `reader`. Una vez hecho esto, leemos el fichero recibido como texto:
+Se puede observar en el ejemplo, que lo que haremos será obtener el campo que queremos analizar, que en este caso es el archivo .txt con los documentos a analizar. Posteriormente, cuando se active el evento, llamaremos al método `fileToDocuments`:
 
 ```javascript
+    function fileToDocuments(e) {
+
+    // Manejo de errores
+    if (e.target.files.length < 1) {
+      alert("Tienes que subir un fichero de documentos");
+    }
+
     const file = fileInput.files[0];
     let reader = new FileReader();
     reader.readAsText(file);
+
+    reader.onload= function() { 
+        // Cada línea del fichero se guarda en un array
+        let lines = reader.result.split('\n');
+
+        // Formalizamos los documentos
+        for (let i = 0; i < lines.length; i++) {
+
+            if (lines[i] == '') { 
+                lines.splice(i, 1); 
+                continue;  
+            }
+
+            lines[i] = lines[i].trim(); // Eliminamos los caracteres en blanco al principio y al final de la línea
+            lines[i] = lines[i].replace(/[^a-zA-Z0-9\s\']/g, ''); // ^ = Negación -> Eliminamos aquellos caracteres que no sean letras, números o espacios.
+            lines[i] = lines[i].replace(/\s+/g, ' '); // Reemplazamos los espacios dobles por uno solo  
+            lines[i] = lines[i].toLowerCase(); // Convertimos a minúsculas
+            
+            // Por cada línea, separamos por espacios	
+            lines[i] = lines[i].split(' ');
+            console.log(lines[i]);
+        }
+
+        // Asignamos los documentos a la matriz de documentos de la clase Recomendador
+        recommender.setDocuments(lines);
+    }
+
+}
 ```
+En el método `fileToDocuments`, creamos un objeto de la clase `FileReader()` que denominaremos `reader`. Una vez hecho esto, leemos el fichero recibido como texto.
+
 Cuando se acabe de leer el fichero correctamente, se activará el evento `load`. En este evento, separamos el archivo recibido por líneas, donde cada línea representará un documento. Por cada línea: convertimos el texto a minúsculas, eliminamos caracteres que no sean alfanuméricos, eliminamos espacios innecesarios, y separamos cada línea por espacios. Finalmente, esta matriz de documentos se almacenará en el objeto recommender a través del método `setDocuments(lines)`.
 
 * Evento `click`: Este evento se activará cada vez que pulsemos el botón del campo que estamos observando.
@@ -128,3 +163,32 @@ También existen otros métodos que simplemente se encargar de mostrar mediante 
 
 [↑](#item0)
 
+<a name="item4.3"></a>
+### 4.3. recommender.js
+
+El fichero [recommender.js](https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/src/recommender.js), contiene la clase **Recommender**, dicha clase almacena los datos obtenidos en el formulario y realiza los cálculos correspondientes para obtener la matriz de similitud coseno entre los distintos documentos, y por cada documento, obtener para cada de sus palabras: TF, IDF, TF-IDF.
+
+### **_Constructor_**
+
+El constructor por defecto de la clase es el siguiente:
+
+```javascript
+constructor() {
+        this.documents = [];
+        this.TF = [];
+        this.IDF = [];
+        this.TFIDF = [];
+        this.similarityMatrix = [];
+        this.vectorLength = [];
+        this.normalizedTF = [];
+      }
+```
+Como los valores de los atributos cambian dinámicamente mediante el evento explicado `click`, todos los atributos tendrán valores por defecto hasta que estos cambien.
+
+* `this.documents`: Representa una matriz de documentos. Cada documento es una lista de palabras.
+* `this.TF`: Representa una matriz de frecuencias de cada palabra en cada documento.
+* `this.IDF`: Representa una matriz de frecuencias inversas de cada palabra en cada documento.
+* `this.TFIDF`: Matriz numérica que expresa cuán relevante es una palabra para un documento en una colección.
+* `this.similarityMatrix`: Matriz de similitud coseno entre documentos.
+* `this.vectorLength`: Vector de longitud de cada documento.
+* `this.normalizedTF`: Matriz de frecuencias normalizadas de cada palabra en cada documento.
