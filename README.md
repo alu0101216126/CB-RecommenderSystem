@@ -8,6 +8,16 @@
 ## Índice 
 
 * [Introducción](#item1)
+* [Directorios](#item2)
+* [Instrucciones](#item3)
+
+  * [Ejemplo de uso](#item3.1)
+ 
+* [Descripción del código](#item4)
+
+  * [index.html](#item4.1) 
+  * [form.js](#item4.2)
+  * [recommender.js](#item4.3) 
 
 <a name="item1"></a>
 ## 1. Introducción :rocket:
