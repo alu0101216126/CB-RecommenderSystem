@@ -168,6 +168,13 @@ También existen otros métodos que simplemente se encargar de mostrar mediante 
 
 El fichero [recommender.js](https://github.com/alu0101216126/CB-RecommenderSystem/blob/main/docs/src/recommender.js), contiene la clase **Recommender**, dicha clase almacena los datos obtenidos en el formulario y realiza los cálculos correspondientes para obtener la matriz de similitud coseno entre los distintos documentos, y por cada documento, obtener para cada de sus palabras: TF, IDF, TF-IDF.
 
+* [Constructor](#Constructor)
+* [Setter](#Setter)
+* [Getters](#Getters)
+* [calculateTF()](#calculateTF)
+* [calculateIDF()](#calculateIDF)
+
+<a name="Constructor"></a>
 ### **_Constructor_**
 
 El constructor por defecto de la clase es el siguiente:
@@ -195,6 +202,7 @@ Como los valores de los atributos cambian dinámicamente mediante el evento expl
 
 [↑](#item0)
 
+<a name="Setter"></a>
 ### **_Setter_**
 
 Mediante los setters, podemos establecer los valores de los atributos, en este caso sólo contamos con un setter:
@@ -203,6 +211,7 @@ Mediante los setters, podemos establecer los valores de los atributos, en este c
 
 [↑](#item0)
 
+<a name="Getters"></a>
 ### **_Getters_**
 
 Asimismo, también contamos con una serie de getters que nos devuelven los valores de algunos atributos.
@@ -216,6 +225,7 @@ Asimismo, también contamos con una serie de getters que nos devuelven los valor
 
 [↑](#item0)
 
+<a name="calculateTF"></a>
 ### **_calculateTF()_**
 
 Con este método calculamos cómo de habitual es un término en su documento correspondiente, denominado TF. Aquellos términos más relevantes, son aquellos que más aparecen, es decir, tienen un TF mayor.
@@ -251,6 +261,7 @@ Después de haber recorrido toda la matriz de documentos, asignamos al atributo 
 
 [↑](#item0)
 
+<a name="calculateIDF"></a>
 ### **_calculateIDF()_**
 
 Mediante este método obtenemos el IDF o frecuencia inversa de cada palabra en su documento correspondiente. Debemos de seguir la siguiente fórmula: `IDF(x) = log N/dfx`
@@ -294,3 +305,5 @@ Una vez tenemos el valor de dfx, podemos calcular el IDF para la palabra del doc
 * `docIDF[word] = Math.log10(N / dfx);`
 
 Vamos almacenando los resultados, para finalmente, asignar el array IDF en el atributo de la clase.
+
+[↑](#item0)
