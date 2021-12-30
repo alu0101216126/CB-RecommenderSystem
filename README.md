@@ -201,6 +201,8 @@ Mediante los setters, podemos establecer los valores de los atributos, en este c
 
 * `setDocuments(documents)`: Establecemos la matriz de documentos.
 
+[↑](#item0)
+
 ### **_Getters_**
 
 Asimismo, también contamos con una serie de getters que nos devuelven los valores de algunos atributos.
@@ -213,3 +215,36 @@ Asimismo, también contamos con una serie de getters que nos devuelven los valor
 * `getVectorLength()`: Devuelve el vector de longitud de cada documento.
 
 [↑](#item0)
+
+### **_calculateTF()_**
+
+Con este método calculamos cómo de habitual es un término en su documento correspondiente, denominado TF. Aquellos términos más relevantes, son aquellos que más aparecen, es decir, tienen un TF mayor.
+
+```javascript
+calculateTF() {
+        let TF = [];
+        for (let i = 0; i < this.documents.length; i++) {
+            let docTF = {};
+
+            for (let j = 0; j < this.documents[i].length; j++) {
+                let word = this.documents[i][j];
+                if (docTF[word]) docTF[word]++;
+                else docTF[word] = 1;
+            }
+
+            TF.push(docTF);
+        }
+
+        this.TF = TF;
+    }
+```
+En primer lugar crearemos un vector que almacenará los resultados (TF). Trabajaremos a su vez con objetos, por lo que obtendremos como resultado, una matriz de objetos de la siguiente manera:
+
+* `[{palabra1: frecuencia1, palabra2: frecuencia2, ...}, {palabra1: frecuencia1, palabra2: frecuencia2, ...}, ...]`
+
+A continuación recorreremos la matriz de documentos, donde por cada documento, contaremos cuantas veces se repite cada palabra.
+
+* Si la palabra ya existe, incrementamos su frecuencia.
+* Si la palabra actual no se encuentra todavía en el documento, es que es la primera vez que aparece, por lo que se le asigna una frecuencia de 1.
+
+Después de haber recorrido toda la matriz de documentos, asignamos al atributo TF, el resultado que hemos obtenido.
