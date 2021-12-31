@@ -395,6 +395,6 @@ calculateNormalizedTF() {
 ```
 Para ello debemos de dividir cada TF por la longitud de su documento correspondiente (vectorLength).
 
-El resultado lo almacenaremos en el atributo **normalizedTF**.
+El resultado lo almacenaremos en el atributo **normalizedTF**. 
 
 [↑](#item0)
