@@ -345,6 +345,8 @@ El resultado de estas operaciones se va almacenando en la variable TFIDF, para f
 <a name="calculateVectorLength"></a>
 ### **_calculateVectorLength()_**
 
+Con este método calculamos el vector de longitud de cada documento. 
+
 ```javascript
 calculateVectorLength() {
         let vectorLength = [];
@@ -361,3 +363,6 @@ calculateVectorLength() {
         this.vectorLength = vectorLength;
     }
 ```
+La longitud de estos vectores se calcula como la raíz cuadrada de la suma de los valores al cuadrado de cada atributo en el vector.
+
+Tras realizar esta fórmula, obtendremos en el atributo **vectorLength**, un array con la longitud de cada documento.
