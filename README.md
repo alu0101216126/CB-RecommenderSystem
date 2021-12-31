@@ -173,6 +173,7 @@ El fichero [recommender.js](https://github.com/alu0101216126/CB-RecommenderSyste
 * [Getters](#Getters)
 * [calculateTF()](#calculateTF)
 * [calculateIDF()](#calculateIDF)
+* [calculateTFIDF()](#calculateTFIDF)
 
 <a name="Constructor"></a>
 ### **_Constructor_**
@@ -307,3 +308,34 @@ Una vez tenemos el valor de dfx, podemos calcular el IDF para la palabra del doc
 Vamos almacenando los resultados, para finalmente, asignar el array IDF en el atributo de la clase.
 
 [↑](#item0)
+
+<a name="calculateTFIDF"></a>
+### **_calculateTFIDF()_**
+
+En este método obtenemos el valor TFIDF de cada palabra en su documento correspondiente.
+
+```javascript
+calculateTFIDF() {
+        let TFIDF = [];
+        for (let i = 0; i < this.TF.length; i++) {
+            let docTFIDF = {};
+
+            for (let word in this.TF[i]) {
+                docTFIDF[word] = this.TF[i][word] * this.IDF[i][word];
+            }
+
+            TFIDF.push(docTFIDF);
+        }
+
+        this.TFIDF = TFIDF;
+    }
+```
+En primer lugar definimos el array **TFIDF**, el cual ira almacenando los resultados obtenidos. Cabe destacar que trabajaremos a su vez con objetos (docTFIDF), por lo que obtendremos como resultado, una matriz de objetos de la siguiente manera:
+
+* `[{palabra1: TFIDF1, palabra2: TFIDF2, ...}, {palabra1: TFIDF1, palabra2: TFIDF2, ...}, ...]`
+
+Ahora, por cada fila del atributo TF, comprobamos si la palabra que estamos analizando aparece en algún documento. Si es así, aplicamos la fórmula: `TFIDF(x) = TF(x) * IDF(x)`
+
+El resultado de estas operaciones se va almacenando en la variable TFIDF, para finalmente, asignar el array IDF en el atributo correspondiente de la clase.
+
+* `docTFIDF[word] = this.TF[i][word] * this.IDF[i][word];`
