@@ -336,6 +336,28 @@ En primer lugar definimos el array **TFIDF**, el cual ira almacenando los result
 
 Ahora, por cada fila del atributo TF, comprobamos si la palabra que estamos analizando aparece en algún documento. Si es así, aplicamos la fórmula: `TFIDF(x) = TF(x) * IDF(x)`
 
+* `docTFIDF[word] = this.TF[i][word] * this.IDF[i][word];`
+
 El resultado de estas operaciones se va almacenando en la variable TFIDF, para finalmente, asignar el array IDF en el atributo correspondiente de la clase.
 
-* `docTFIDF[word] = this.TF[i][word] * this.IDF[i][word];`
+[↑](#item0)
+
+<a name="calculateVectorLength"></a>
+### **_calculateVectorLength()_**
+
+```javascript
+calculateVectorLength() {
+        let vectorLength = [];
+        for (let i = 0; i < this.TF.length; i++) {
+            let docLength = 0;
+
+            for (let word in this.TF[i]) {
+                docLength += Math.pow(this.TF[i][word], 2);
+            }
+
+            vectorLength.push(Math.sqrt(docLength));
+        }
+
+        this.vectorLength = vectorLength;
+    }
+```
