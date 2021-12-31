@@ -174,6 +174,8 @@ El fichero [recommender.js](https://github.com/alu0101216126/CB-RecommenderSyste
 * [calculateTF()](#calculateTF)
 * [calculateIDF()](#calculateIDF)
 * [calculateTFIDF()](#calculateTFIDF)
+* [calculateVectorLength()](#calculateVectorLength)
+* [calculateNormalizedTF()](#calculateNormalizedTF)
 
 <a name="Constructor"></a>
 ### **_Constructor_**
@@ -366,3 +368,33 @@ calculateVectorLength() {
 La longitud de estos vectores se calcula como la raíz cuadrada de la suma de los valores al cuadrado de cada atributo en el vector.
 
 Tras realizar esta fórmula, obtendremos en el atributo **vectorLength**, un array con la longitud de cada documento.
+
+[↑](#item0)
+
+<a name="calculateNormalizedTF"></a>
+### **_calculateNormalizedTF()_**
+
+En este método normalizamos los TF de cada documento.
+
+```javascript
+calculateNormalizedTF() {
+        this.calculateVectorLength();
+        let normalizedTF = [];
+
+        for (let i = 0; i < this.TF.length; i++) {
+            let docNormalizedTF = {};
+            for (let word in this.TF[i]) {
+                docNormalizedTF[word] = this.TF[i][word] / this.vectorLength[i];
+            }
+
+            normalizedTF.push(docNormalizedTF);
+        }
+
+        this.normalizedTF = normalizedTF;
+    }
+```
+Para ello debemos de dividir cada TF por la longitud de su documento correspondiente (vectorLength).
+
+El resultado lo almacenaremos en el atributo **normalizedTF**.
+
+[↑](#item0)
