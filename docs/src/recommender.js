@@ -140,9 +140,9 @@ class Recommender {
     }
 
     /**
-     * Normalizamos los TF de cada documento
-     * Para ello, dividimos cada TF por la longitud de su documento correspondiente (vectorLength)
-     * 
+     * Calculamos el vector de longitud de cada documento
+     * Esto se realiza para poder normalizar los TF posteriormente. 
+     * La longitud de estos vectores se calcula como la raíz cuadrada de la suma de los valores al cuadrado de cada atributo en el vector.
      */
     calculateNormalizedTF() {
         this.calculateVectorLength();
