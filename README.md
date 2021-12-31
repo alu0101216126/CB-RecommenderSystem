@@ -398,3 +398,27 @@ Para ello debemos de dividir cada TF por la longitud de su documento correspondi
 El resultado lo almacenaremos en el atributo **normalizedTF**. 
 
 [↑](#item0)
+
+<a name="cosineSimilarity"></a>
+### **_cosineSimilarity(doc1, doc2)_**
+
+Con este método calculamos la similitud de dos documentos usando el método de coseno.
+
+```javascript
+cosineSimilarity(doc1, doc2) {
+        let similarity = 0;
+
+        for (let word in doc1) {
+            if (doc2[word]) similarity += doc1[word] * doc2[word];
+        }
+
+        return similarity;
+    }
+```
+Para ello definimos un acumulador denominado **similarity**, el cual almacenará la suma de los productos, de aquellos TF normalizados donde sus palabras se encuentren en ambos documentos.
+
+Lo primero que debemos hacer, es recorrer las palabras de **doc1**, si la palabra aparece en ambos documentos, sumamos el producto de sus TF normalizados.
+
+* `if (doc2[word]) similarity += doc1[word] * doc2[word];`
+
+Finalmente retornamos el sumatorio **similarity**, el cual contiene la similitud entre **doc1** y **doc2**
