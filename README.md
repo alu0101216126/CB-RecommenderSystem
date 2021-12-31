@@ -176,6 +176,8 @@ El fichero [recommender.js](https://github.com/alu0101216126/CB-RecommenderSyste
 * [calculateTFIDF()](#calculateTFIDF)
 * [calculateVectorLength()](#calculateVectorLength)
 * [calculateNormalizedTF()](#calculateNormalizedTF)
+* [cosineSimilarity()](#cosineSimilarity)
+* [calculateSimilarityMatrix](calculateSimilarityMatrix)
 
 <a name="Constructor"></a>
 ### **_Constructor_**
@@ -196,12 +198,12 @@ constructor() {
 Como los valores de los atributos cambian dinámicamente mediante el evento explicado `click`, todos los atributos tendrán valores por defecto hasta que estos cambien.
 
 * `this.documents`: Representa una matriz de documentos. Cada documento es una lista de palabras.
-* `this.TF`: Representa una matriz de frecuencias de cada palabra en cada documento.
-* `this.IDF`: Representa una matriz de frecuencias inversas de cada palabra en cada documento.
-* `this.TFIDF`: Matriz numérica que expresa cuán relevante es una palabra para un documento en una colección.
+* `this.TF`: Representa un array de frecuencias de cada palabra en cada documento.
+* `this.IDF`: Representa un array de frecuencias inversas de cada palabra en cada documento.
+* `this.TFIDF`: Array numérico que expresa cuán relevante es una palabra para un documento en una colección.
 * `this.similarityMatrix`: Matriz de similitud coseno entre documentos.
-* `this.vectorLength`: Vector de longitud de cada documento.
-* `this.normalizedTF`: Matriz de frecuencias normalizadas de cada palabra en cada documento.
+* `this.vectorLength`: Array de longitud de cada documento.
+* `this.normalizedTF`: Array de frecuencias normalizadas de cada palabra en cada documento.
 
 [↑](#item0)
 
@@ -422,3 +424,33 @@ Lo primero que debemos hacer, es recorrer las palabras de **doc1**, si la palabr
 * `if (doc2[word]) similarity += doc1[word] * doc2[word];`
 
 Finalmente retornamos el sumatorio **similarity**, el cual contiene la similitud entre **doc1** y **doc2**
+
+[↑](#item0)
+
+<a name="calculateSimilarityMatrix"></a>
+### **_calculateSimilarityMatrix()_**
+
+En este último método, calculamos la matriz de similitud de cada documento con todos los demás.
+
+```javascript
+calculateSimilarityMatrix() {
+        let similarityMatrix = [];
+
+        for (let i = 0; i < this.normalizedTF.length; i++) {
+            let docSimilarityMatrix = [];
+
+            for (let j = 0; j < this.normalizedTF.length; j++) {
+                docSimilarityMatrix.push(this.cosineSimilarity(this.normalizedTF[i], this.normalizedTF[j]));
+            }
+
+            similarityMatrix.push(docSimilarityMatrix);
+        }
+        this.similarityMatrix = similarityMatrix;
+    }
+```
+**similarityMatrix** (variable) almacenará los resultados que formarán la matriz de similitud.
+**docSimilarityMatrix** por cada iteración, almacenará los resultados de realizar la similitud del documento x, con el resto de documentos.
+
+Ahora, lo que debemos hacer, es recorrer el array de TF normalizados (Recordar que cada elemento del array hace referencia a un documento), y por cada elemento de dicho array, realizar el método **cosineSimilarity()** con el resto de documentos. 
+
+Estos resultados los iremos almacenando, hasta finalmente, asignar el resultado al atributo correspondiente **similarityMatrix**. De esta manera ya tendríamos la matriz de documentos.
