@@ -175,7 +175,6 @@ class Recommender {
         }
 
         return similarity;
-
     }
 
     /**
