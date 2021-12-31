@@ -454,3 +454,5 @@ calculateSimilarityMatrix() {
 Ahora, lo que debemos hacer, es recorrer el array de TF normalizados (Recordar que cada elemento del array hace referencia a un documento), y por cada elemento de dicho array, realizar el método **cosineSimilarity()** con el resto de documentos. 
 
 Estos resultados los iremos almacenando, hasta finalmente, asignar el resultado al atributo correspondiente **similarityMatrix**. De esta manera ya tendríamos la matriz de documentos.
+
+[↑](#item0)
