@@ -177,7 +177,7 @@ El fichero [recommender.js](https://github.com/alu0101216126/CB-RecommenderSyste
 * [calculateVectorLength()](#calculateVectorLength)
 * [calculateNormalizedTF()](#calculateNormalizedTF)
 * [cosineSimilarity()](#cosineSimilarity)
-* [calculateSimilarityMatrix](calculateSimilarityMatrix)
+* [calculateSimilarityMatrix](#calculateSimilarityMatrix)
 
 <a name="Constructor"></a>
 ### **_Constructor_**
